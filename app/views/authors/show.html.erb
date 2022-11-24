@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+<div class="jumbotron">
+  <h1 class="display-4">Author Name:
+  <p class="lead"><%= @author.first_name + " " + @author.last_name%></p></h1>
+  <hr class="my-4">
+  <p>Date of birth:
+  <%= @author.dob %></p>
+  <%= link_to 'Edit', edit_author_path(@author) ,:class=>"btn btn-secondary"%>
+  <%= link_to 'Back', authors_path ,:class=>"btn btn-dark" %>
+</div>
