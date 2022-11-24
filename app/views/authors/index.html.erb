@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Authors</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Author name</th>
+      <th>Dob</th>
+      <th>Book/s of the authors</th>
+      <th>Delete author</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= link_to author.first_name + " " + author.last_name, author %></td>
+        <td><%= author.dob %></td>
+        <td><%= author.book_ids %></td>
+        <td><%= link_to 'Delete', author, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Author', new_author_path, :class=>"btn btn-primary" %>

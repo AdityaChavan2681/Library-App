@@ -1,0 +1,26 @@
+<%= form_with(model: book) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+        <% book.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="card">
+    <br/>
+    <h5 class="card-header">Book</h5>
+    <div class="card-body">
+      <h5 class="card-title">Title:</h5>
+      <p class="card-text"><%= form.text_field :title %></p>
+      <h5 class="card-title">Description:</h5>
+      <p class="card-text"><%= form.text_field :description %></p>
+      <h5 class="card-title">Author id:</h5>
+      <p class="card-text"><%= form.collection_check_boxes :author_ids, Author.all, :id, :full_name, { hide_label: true } %></p>
+      <%= form.submit :class=>"btn btn-primary"%>
+    </div>
+  </div>
+<% end %>
