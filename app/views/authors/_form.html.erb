@@ -1,3 +1,5 @@
+
+
 <%= form_with(model: author) do |form| %>
 <% if author.errors.any? %>
 <div id="error_explanation">
@@ -19,10 +21,21 @@
     <h5 class="card-title">Last name:</h5>
     <p class="card-text"><%= form.text_field :last_name %></p>
     <h5 class="card-title">Date of birth:</h5>
-    <p class="card-text"><%= form.text_field :dob %></p>
+    <p class="card-text"><%= form.date_field :dob %></p>
     <h5 class="card-title">Book id:</h5>
-    <p class="card-text"><%= form.collection_check_boxes :book_ids, Book.all, :id, :title, { hide_label: true } %></p>
+      <%= form.collection_select(:book_ids, Book.all, :id, :title,{:"data-style" => "chosen-select", :"data-size" => "5"}, {class: "selectpicker", title: "Choose Book(s)", multiple: true})%>
+
+
+
+
     <%= form.submit :class=>"btn btn-primary"%>
   </div>
 </div>
 <% end %>
+
+<script>
+  $('select').selectpicker();
+
+
+
+</script>
