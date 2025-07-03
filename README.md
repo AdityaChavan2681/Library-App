@@ -1,24 +1,47 @@
-# README
+🧠 Library App — Multi-Author Book Association in Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+📌 Overview
+This project demonstrates how to model many-to-many relationships in Ruby on Rails using has_many :through. It simulates a library system where multiple authors can be linked to multiple books, showcasing clean relational logic and scalable design.
 
-Things you may want to cover:
+🛠️ Tech Stack
+Framework: Ruby on Rails
 
-* Ruby version
+Database: SQLite / PostgreSQL
 
-* System dependencies
+Frontend: HTML, ERB, Bootstrap
 
-* Configuration
+Tools: Rails Admin, Devise (optional), ActiveRecord
 
-* Database creation
+🚀 Features
+Author and Book models with has_many :through association
 
-* Database initialization
+CRUD operations for both entities
 
-* How to run the test suite
+Nested forms for assigning authors to books
 
-* Services (job queues, cache servers, search engines, etc.)
+Clean UI with Bootstrap styling
 
-* Deployment instructions
+Scalable structure for future enhancements (genres, publishers, etc.)
 
-* ...
+📁 Structure Highlights
+app/models/author.rb: Defines author relationships
+
+app/models/book.rb: Defines book relationships
+
+app/models/authorship.rb: Join model connecting authors and books
+
+app/controllers/books_controller.rb: Handles book logic
+
+app/views/books/_form.html.erb: Nested form for author assignment
+
+🧪 How to Run Locally
+bash
+git clone https://github.com/AdityaChavan2681/Library-App.git
+cd Library-App
+bundle install
+rails db:create db:migrate
+rails server
+Then visit http://localhost:3000 to explore the app.
+
+🧠 Reflection
+This project helped me internalize ActiveRecord associations, join models, and the power of relational thinking in Rails. It’s a foundational build that taught me how to structure scalable data relationships while keeping the codebase clean and intuitive.
